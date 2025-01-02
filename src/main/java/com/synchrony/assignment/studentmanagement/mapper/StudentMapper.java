@@ -23,4 +23,14 @@ public class StudentMapper {
         s.setPhoneNumber(student.getPhoneNumber());
         return s;
     }
+
+    public static StudentDto fromRequest(CreateStudent createStudent, Long id) {
+        StudentDto s = new StudentDto();
+        s.setId(id);
+        s.setName(createStudent.getName());
+        s.setAge(createStudent.getAge());
+        s.setStudentClass(createStudent.getStudentClass());
+        s.setPhoneNumber(createStudent.getPhoneNumber());
+        return s;
+    }
 }

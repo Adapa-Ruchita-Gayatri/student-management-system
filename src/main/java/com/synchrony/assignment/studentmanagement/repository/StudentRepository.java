@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 public interface StudentRepository extends CrudRepository<Student, Long> {
-    @Query("SELECT s FROM Student s WHERE s.name = :name")
+    @Query("SELECT s FROM Student s WHERE s.name = :name order by updatedAt asc")
     List<Student> findByNameContaining(@Param("name") String name);
 
     @Modifying
@@ -25,6 +25,6 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
     @Query("UPDATE Student s SET s.name = :name, s.age = :age, s.studentClass = :studentClass, s.phoneNumber = :phoneNumber WHERE s.id = :id")
     int updateById(@Param("name") String name, @Param("age") String age, @Param("studentClass") String studentClass, @Param("phoneNumber") String phoneNumber, @Param("id") Long id);
 
-    @Query(value = "SELECT * FROM student s ORDER BY name asc :limit OFFSET :offset", nativeQuery = true)
+    @Query(value = "SELECT * FROM student s ORDER BY updatedAt asc :limit OFFSET :offset", nativeQuery = true)
     List<Student> findAllStudentsInfo(int limit, int offset);
 }
