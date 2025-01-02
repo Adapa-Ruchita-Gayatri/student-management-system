@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/student")
 public class StudentController {
@@ -40,7 +41,7 @@ public class StudentController {
     }
 
     @GetMapping("/all")
-    public ResponseWrapper<List<StudentDto>> getAllStudentsInfo(@RequestParam String sortField, @RequestParam String sortOrder, @RequestParam int limit, @RequestParam int offset) {
-        return new ResponseWrapper<>(true, studentFacade.getAllStudentsInfo(limit, offset), NO_ERROR_MSG);
+    public ResponseWrapper<List<StudentDto>> getAllStudentsInfo(@RequestParam int limit, @RequestParam int offset, @RequestParam String name) {
+        return new ResponseWrapper<>(true, studentFacade.getAllStudentsInfo(limit, offset, name), NO_ERROR_MSG);
     }
 }

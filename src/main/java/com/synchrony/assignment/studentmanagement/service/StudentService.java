@@ -41,7 +41,7 @@ public class StudentService {
         }
     }
 
-    public List<Student> getAllStudentsInfo(int limit, int offset) {
-        return studentRepository.findAllStudentsInfo(limit, offset);
+    public List<Student> getAllStudentsInfo(int limit, int offset, String name) {
+        return studentRepository.findAllStudentsInfo(limit, offset, name);
     }
 }

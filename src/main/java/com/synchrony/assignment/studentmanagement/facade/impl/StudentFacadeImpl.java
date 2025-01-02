@@ -38,8 +38,8 @@ public class StudentFacadeImpl implements StudentFacade {
        return studentService.updateStudentInfoById(createStudent, id);
     }
 
-    public List<StudentDto> getAllStudentsInfo(int limit, int offset) {
-        List<Student> students = studentService.getAllStudentsInfo(limit, offset);
+    public List<StudentDto> getAllStudentsInfo(int limit, int offset, String name) {
+        List<Student> students = studentService.getAllStudentsInfo(limit, offset, name);
         List<StudentDto> studentDtos = students.stream().map((s) -> {
             return StudentMapper.toDto(s);
         }).collect(Collectors.toList());
