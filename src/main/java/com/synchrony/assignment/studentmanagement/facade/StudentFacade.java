@@ -13,5 +13,5 @@ public interface StudentFacade {
     List<StudentDto> getStudentByName(String name);
     Boolean deleteStudent(Long id);
     Boolean updateStudentInfoById(CreateStudent createStudent, Long id);
-    List<StudentDto> getAllStudentsInfo(int limit, int offset, String name);
+    List<StudentDto> getAllStudentsInfo(Integer limit,Integer offset, String name);
 }

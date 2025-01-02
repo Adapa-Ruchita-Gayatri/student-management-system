@@ -26,5 +26,5 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
     int updateById(@Param("name") String name, @Param("age") String age, @Param("studentClass") String studentClass, @Param("phoneNumber") String phoneNumber, @Param("id") Long id);
 
     @Query(value = "SELECT * FROM student s WHERE LOWER(name) LIKE LOWER(CONCAT('%', :name, '%')) ORDER BY updated_at DESC LIMIT :limit OFFSET :offset", nativeQuery = true)
-    List<Student> findAllStudentsInfo(int limit, int offset, String name);
+    List<Student> findAllStudentsInfo(Integer limit,Integer offset, String name);
 }
