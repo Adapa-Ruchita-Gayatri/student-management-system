@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 public interface StudentRepository extends CrudRepository<Student, Long> {
-    @Query("SELECT s FROM Student s WHERE s.name = :name")
+    @Query("SELECT s FROM Student s WHERE s.name = :name order by updatedAt asc")
     List<Student> findByNameContaining(@Param("name") String name);
 
     @Modifying

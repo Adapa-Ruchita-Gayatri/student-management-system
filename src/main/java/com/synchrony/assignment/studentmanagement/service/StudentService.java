@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -17,6 +18,14 @@ public class StudentService {
     public Student addStudent(CreateStudent createStudent) {
         Student student = studentRepository.save(StudentMapper.toEntity(createStudent));
         return student;
+    }
+
+    public Student getStudentById(Long id) {
+        Optional<Student> result =  studentRepository.findById(id);
+        if(result.isPresent()) {
+            return result.get();
+        }
+        throw new RuntimeException("Student not found");
     }
 
     public List<Student> getStudentByName(String name) {
