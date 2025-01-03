@@ -5,6 +5,7 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 @Data
@@ -25,7 +26,7 @@ public class Student {
     private String studentClass;
 
     @Column(nullable = false)
-    private String phoneNumber;
+    private BigInteger phoneNumber;
 
     @CreationTimestamp
     private LocalDateTime createdAt;

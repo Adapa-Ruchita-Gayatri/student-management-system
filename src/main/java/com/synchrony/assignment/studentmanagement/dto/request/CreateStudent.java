@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Data;
 
+import java.math.BigInteger;
+
 @Data
 @Builder
 public class CreateStudent {
@@ -19,5 +21,5 @@ public class CreateStudent {
     private String studentClass;
 
     @NotBlank(message = "Phone number is required")
-    private String phoneNumber;
+    private BigInteger phoneNumber;
 }

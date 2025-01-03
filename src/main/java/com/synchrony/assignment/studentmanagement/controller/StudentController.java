@@ -109,7 +109,7 @@ public class StudentController {
      *         - An error message (which is set to a default "No error Recorded" in this case)
      */
     @GetMapping("/all")
-    public ResponseWrapper<List<StudentDto>> getAllStudentsInfo(@RequestParam Integer limit, @RequestParam Integer offset, @RequestParam String name) {
+    public ResponseWrapper<List<StudentDto>> getAllStudentsInfo(@RequestParam(defaultValue = "20") Integer limit, @RequestParam(defaultValue = "0") Integer offset, @RequestParam(defaultValue = "", required = false) String name) {
         return new ResponseWrapper<>(true, studentFacade.getAllStudentsInfo(limit, offset, name), NO_ERROR_MSG);
     }
 }
